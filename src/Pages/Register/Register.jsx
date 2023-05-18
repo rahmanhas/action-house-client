@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Register = () => {
-    const { signUpNewUser, setUser, setLoading, error, setError, updateProfileInfo } = useContext(AuthContext);
+    const { signUpNewUser, setUser, setLoading, updateProfileInfo, error,setError } = useContext(AuthContext);
 
     const handleRegister = event => {
         event.preventDefault()
@@ -21,6 +21,7 @@ const Register = () => {
             })
             .catch(error=>{
                 setError(error.message)
+                console.log(error);
             })
     }
     return (
@@ -37,26 +38,26 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name="name" placeholder="email" className="input input-bordered" />
+                            <input type="text" name="name" placeholder="email" className="input input-bordered" required/>
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="email" className="input input-bordered" />
+                            <input type="email" name="email" placeholder="email" className="input input-bordered" required/>
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                            <input type="password" name="password" placeholder="password" className="input input-bordered" required/>
 
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">PhotoURL</span>
                             </label>
-                            <input type="text" name="photoURL" placeholder="Photo URL" className="input input-bordered" />
+                            <input type="text" name="photoURL" placeholder="Photo URL" className="input input-bordered" required/>
 
                         </div>
                         <div className="form-control">
@@ -66,7 +67,7 @@ const Register = () => {
                         </div>
                         <div className="form-control">
 
-                            <p>{error}</p>
+                            <p className='text-red-800'>{error}</p>
                         </div>
                         <div className="form-control">
 

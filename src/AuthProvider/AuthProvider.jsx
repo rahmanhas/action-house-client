@@ -21,12 +21,13 @@ const AuthProvider = ({ children }) => {
             displayName: name, photoURL: photoURL
           })
           .then()
-          .catch()
+          .catch(error=>console.log(error.message))
     }
     const authInfo = {
         signUpNewUser,
         setUser,
         setLoading,
+        error,
         setError,
         updateProfileInfo
     }
