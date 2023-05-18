@@ -4,7 +4,7 @@ import GalleryCard from './GalleryCArd';
 const Gallery = () => {
     const [toys,setToys] = useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/storedtoydata")
+        fetch("https://action-house-server.vercel.app/storedtoydata")
         .then(res=>res.json())
         .then(data=>setToys(data.slice(0,4)))
     },[])
