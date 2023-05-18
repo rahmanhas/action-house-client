@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import useDynamicTitle from '../../../../CustomHook/UseDynamicTitle';
 import logo from "../../../../../public/vite.svg"
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
-import UseProfileImageHoverName from '../../../../Component/UseProfileImageHoverName';
 import { AuthContext } from '../../../../AuthProvider/AuthProvider';
 
 
@@ -39,6 +38,7 @@ const Header = () => {
                 </div>
 
                 <img className='h-[60px]' src={logo} alt="" />
+                <h1 className='font-bold ml-2 text-xl'>Action <br /> House</h1>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

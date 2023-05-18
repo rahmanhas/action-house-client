@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className="footer footer-center p-10 bg-base-300 text-base-content">
             <div>
-                <img width="200" height="100"  src={logo} alt="" />
+                <img width="200" height="50"  src={logo} alt="" />
                 <p className="font-bold">
                     Action House Industries Ltd. <br />Providing reliable action figures since 1953
                 </p>
