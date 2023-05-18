@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Register = () => {
     const { signUpNewUser, setUser, setLoading, updateProfileInfo, error,setError } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from.pathname || '/'
 
     const handleRegister = event => {
         event.preventDefault()
@@ -17,6 +20,7 @@ const Register = () => {
                 setUser(result.user);
                 updateProfileInfo(name, photoURL)
                 form.reset()
+                navigate(from)
                 setError("")
             })
             .catch(error=>{
@@ -67,7 +71,7 @@ const Register = () => {
                         </div>
                         <div className="form-control">
 
-                            <p className='text-red-800'>{error}</p>
+                            <p className='text-red-500'>{error}</p>
                         </div>
                         <div className="form-control">
 

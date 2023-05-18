@@ -23,13 +23,24 @@ const AuthProvider = ({ children }) => {
           .then()
           .catch(error=>console.log(error.message))
     }
+    const logInUser = (email,password)=>{
+        setLoading(true)
+        return signInWithEmailAndPassword(auth,email,password)
+    }
+    const logInGoogleUser = (provider) => {
+        setLoading(true)
+        return signInWithPopup(auth, provider)
+            
+    }
     const authInfo = {
         signUpNewUser,
         setUser,
         setLoading,
         error,
         setError,
-        updateProfileInfo
+        updateProfileInfo,
+        logInUser,
+        logInGoogleUser
     }
     return (
         <AuthContext.Provider value={authInfo}>
