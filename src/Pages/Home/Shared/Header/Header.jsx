@@ -1,10 +1,11 @@
 import React from 'react';
-import useDynamicTitle from '../../../CustomHook/UseDynamicTitle';
-import logo from "../../../../public/vite.svg"
+import useDynamicTitle from '../../../../CustomHook/UseDynamicTitle';
+import logo from "../../../../../public/vite.svg"
 import { Link, NavLink } from 'react-router-dom';
-import UseProfileImageHoverName from '../../../Component/UseProfileImageHoverName';
+import UseProfileImageHoverName from '../../../../Component/UseProfileImageHoverName';
 
 const user = { displayName: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnN8ZW58MHx8MHx8&w=1000&q=80" }
+
 
 
 const handleLogOut = () =>{
@@ -45,7 +46,7 @@ const Header = () => {
                         {NavMenu}
                     </ul>
                 </div>
-                {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
+                
                 <img className='h-[60px]' src={logo} alt="" />
             </div>
             <div className="navbar-center hidden lg:flex">
