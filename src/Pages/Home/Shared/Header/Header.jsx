@@ -49,13 +49,11 @@ const Header = () => {
                 {
                     user ?
                         <>
-                        <img onmou src={user.photoURL} alt={user.displayName} />
-                            {/* <UseProfileImageHoverName
-                                src={user.photoURL}
-                                alt={user.displayName}
-                                title={user.displayName}
-                                style={{ maxWidth: "100%" }}
-                            /> */}
+                            <div className="avatar">
+                                <div className="w-12 rounded-full border-blue-500 border-2 mr-3">
+                                    <img src={user.photoURL} title={user.displayName} />
+                                </div>
+                            </div>
                             <button className='btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black' onClick={handleLogOut}>Log Out</button>
                         </> :
                         <Link className='btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black' to="/login">Log in</Link>

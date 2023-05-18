@@ -4,7 +4,7 @@ const UseProfileImageHoverName = (props) => {
     return (
         <div>
             <img
-                className='rounded-full border-green-700 border-2 mr-3 '
+                className='rounded-full border-red-500 border-2 mr-3 '
                 src={props.src}
                 alt={props.alt}
                 title={props.title}
@@ -12,6 +12,7 @@ const UseProfileImageHoverName = (props) => {
                 width="45" height="45"
             />
         </div>
+        
     );
 };
 
