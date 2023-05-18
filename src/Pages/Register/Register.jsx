@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Register = () => {
+    const { signUpNewUser, setUser, setLoading, error, setError, updateProfileInfo } = useContext(AuthContext);
+
+    const handleRegister = event => {
+        event.preventDefault()
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photoURL = form.photoURL.value;
+        signUpNewUser(email, password)
+            .then(result => {
+                setUser(result.user);
+                updateProfileInfo(name, photoURL)
+                form.reset()
+                setError("")
+            })
+            .catch(error=>{
+                setError(error.message)
+            })
+    }
     return (
         <div className="hero min-h-screen bg-base-200 ">
             <div className="hero-content lg:w-1/2 text-center">
 
                 <div className="card flex-shrink-0 max-w-sm shadow-2xl bg-base-100">
-                    <div className="card-body">
+                    <form onSubmit={handleRegister} className="card-body">
                         <div className="text-center">
                             <h1 className="text-2xl font-bold text-center">Register now!</h1>
 
@@ -40,14 +61,18 @@ const Register = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <p className='my-5'>Already have an account? Please <Link to='/login' className='text-red-500'>login</Link></p>
+                                <p className='my-2'>Already have an account? Please <Link to='/login' className='text-red-500'>login</Link></p>
                             </label>
                         </div>
-
                         <div className="form-control">
-                            <button className="btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black">Register</button>
+
+                            <p>{error}</p>
                         </div>
-                    </div>
+                        <div className="form-control">
+
+                            <input className="btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black" type="submit" value="Register" />
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
