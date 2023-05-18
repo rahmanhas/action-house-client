@@ -3,11 +3,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import useDynamicTitle from '../../CustomHook/UseDynamicTitle';
 
 const googleProvider = new GoogleAuthProvider();
 
 
 const LogIn = () => {
+    useDynamicTitle("Action House/login")
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from.pathname || '/'

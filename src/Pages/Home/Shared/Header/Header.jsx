@@ -1,16 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useDynamicTitle from '../../../../CustomHook/UseDynamicTitle';
 import logo from "../../../../../public/vite.svg"
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import UseProfileImageHoverName from '../../../../Component/UseProfileImageHoverName';
-
-const user = { displayName: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnN8ZW58MHx8MHx8&w=1000&q=80" }
-
+import { AuthContext } from '../../../../AuthProvider/AuthProvider';
 
 
-const handleLogOut = () =>{
-    console.log("log out");
-}
+
 const NavMenu = <>
     <li><NavLink to={`/`} className={({ isActive }) => isActive ? "bg-blue-500 text-lg text-black mr-2 p-2" : ""}>Home</NavLink></li>
     <li><NavLink to={`/alltoys`} className={({ isActive }) => isActive ? "bg-blue-500 text-lg text-black mr-2 p-2" : ""}>All Toys</NavLink></li>
@@ -18,23 +14,18 @@ const NavMenu = <>
     <li><NavLink to={`/addtoy`} className={({ isActive }) => isActive ? "bg-blue-500 text-lg text-black mr-2 p-2" : ""}>Add a Toy</NavLink></li>
     <li><NavLink to={`/blog`} className={({ isActive }) => isActive ? "bg-blue-500 text-lg text-black mr-2 p-2" : ""}>Blog</NavLink></li>
 </>
-const userImage = <>
-    <UseProfileImageHoverName
-        src={user.photoURL}
-        alt={user.displayName}
-        title={user.displayName}
-        style={{ maxWidth: "100%" }}
-    />
-</>
-const logInButton = <>
-    <Link className='btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black' to="/login">Log in</Link>
-</>
-const logOutButton = <>
-    <button className='btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black' onClick={handleLogOut}>Log Out</button>
-</>
-
 const Header = () => {
+    const { user, logOut, setError } = useContext(AuthContext);
+    console.log(user);
     useDynamicTitle("Action House")
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from.pathname || '/'
+    const handleLogOut = () => {
+        logOut()
+            .then(navigate(from))
+            .catch(error => setError(error.message))
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -46,7 +37,7 @@ const Header = () => {
                         {NavMenu}
                     </ul>
                 </div>
-                
+
                 <img className='h-[60px]' src={logo} alt="" />
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -58,10 +49,16 @@ const Header = () => {
                 {
                     user ?
                         <>
-                            {userImage}
-                            {logOutButton}
+                        <img onmou src={user.photoURL} alt={user.displayName} />
+                            {/* <UseProfileImageHoverName
+                                src={user.photoURL}
+                                alt={user.displayName}
+                                title={user.displayName}
+                                style={{ maxWidth: "100%" }}
+                            /> */}
+                            <button className='btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black' onClick={handleLogOut}>Log Out</button>
                         </> :
-                        { logInButton }
+                        <Link className='btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black' to="/login">Log in</Link>
                 }
             </div>
         </div>

@@ -32,6 +32,19 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
             
     }
+    const logOut = () => {
+        setLoading(true)
+        setUser(null);
+        return signOut(auth)
+    }
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, loggedUser => {
+            console.log(loggedUser);
+            setUser(loggedUser);
+            setLoading(false)
+        })
+        return unsubscribe()
+    }, [])
     const authInfo = {
         signUpNewUser,
         setUser,
@@ -40,7 +53,9 @@ const AuthProvider = ({ children }) => {
         setError,
         updateProfileInfo,
         logInUser,
-        logInGoogleUser
+        logInGoogleUser,
+        logOut,
+        user
     }
     return (
         <AuthContext.Provider value={authInfo}>
