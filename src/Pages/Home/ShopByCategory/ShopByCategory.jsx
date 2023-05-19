@@ -12,11 +12,16 @@ const ShopByCategory = () => {
     
     return (
         <div>
-            <h1 className='text-4xl text-center font-bold my-10 mx-auto '>Buy From Your Favourite Category</h1>
+            <h1 className='text-4xl text-center font-bold my-10 mx-auto '>Buy From Your Favorite Category</h1>
             <Tabs>
                 <TabList>
-                    <Tab>Title 1</Tab>
-                    <Tab>Title 2</Tab>
+ 
+                    <Tab>DC Comics</Tab>
+                    <Tab>Marvel Comics</Tab>
+                    <Tab>Transformers</Tab>
+                    <Tab>Star Wars</Tab>
+                    <Tab>Star Trek</Tab>
+                    <Tab>Others</Tab>
                 </TabList>
 
                 <TabPanel>

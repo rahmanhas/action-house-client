@@ -16,7 +16,7 @@ const NavMenu = <>
 const Header = () => {
     const { user, logOut, setError } = useContext(AuthContext);
     console.log(user);
-    useDynamicTitle("Action House")
+    
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from.pathname || '/'

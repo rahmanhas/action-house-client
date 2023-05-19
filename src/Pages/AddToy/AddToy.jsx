@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useDynamicTitle from '../../CustomHook/UseDynamicTitle';
 
 const AddToy = () => {
+    useDynamicTitle("Action House/Add a Toy")
     const { user } = useContext(AuthContext);
     const [selectedOption, setSelectedOption] = useState('');
     const handleNewlyAddedToy = event => {
@@ -82,13 +84,12 @@ const AddToy = () => {
                         <label className="label">
                             <span className="label-text">Sub Category</span>
                         </label>
-                        <select className="select select-bordered w-full max-w-xs" name='subCategory' value={selectedOption}>
-                            <option disabled selected>What is the subcategory?</option>
-                            <option>DC Comics Toy</option>
-                            <option>Marvel Comics Toy</option>
-                            <option>Marvel Comics Toy</option>
-                            <option>Star Wars Toy</option>
-                            <option>Star Treck Toy</option>
+                        <select className="select select-bordered w-full max-w-xs" name='subCategory' value={selectedOption} onChange={(e)=>setSelectedOption(e.target.value)}>
+                            <option value="DC Comics">DC Comics</option>
+                            <option value="Marvel Comics">Marvel Comics</option>
+                            <option>Transformers</option>
+                            <option>Star Wars</option>
+                            <option>Star Trek</option>
                             <option>Others</option>
                         </select>
                     </div>
