@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useDynamicTitle from '../../CustomHook/UseDynamicTitle';
 
@@ -29,7 +29,7 @@ const AddToy = () => {
             availableQuantity,
             detailDescription
         };
-        fetch("http://localhost:5000/toys", {
+        fetch("https://action-house-server.vercel.app/toys", {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -39,11 +39,13 @@ const AddToy = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                // if(data.inserted){
-                //     alert("service booked successfully")
-                //     form.reset()
-                // }
+                if (data.insertedId) {
+                    alert("Added to Toy Collection successfully")
+                    form.reset()
+                }
             })
+            .catch(error => console.log(error));
+
 
     }
     return (
@@ -84,9 +86,9 @@ const AddToy = () => {
                         <label className="label">
                             <span className="label-text">Sub Category</span>
                         </label>
-                        <select className="select select-bordered w-full max-w-xs" name='subCategory' value={selectedOption} onChange={(e)=>setSelectedOption(e.target.value)}>
-                            <option value="DC Comics">DC Comics</option>
-                            <option value="Marvel Comics">Marvel Comics</option>
+                        <select className="select select-bordered w-full max-w-xs" name='subCategory' value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
+                            <option>DC Comics</option>
+                            <option>Marvel Comics</option>
                             <option>Transformers</option>
                             <option>Star Wars</option>
                             <option>Star Trek</option>
