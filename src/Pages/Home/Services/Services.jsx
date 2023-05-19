@@ -3,7 +3,7 @@ import { IconContext } from "react-icons";
 import { FaGift, FaHeadSideCough, FaHeadset, FaMoneyBillWave, FaPiggyBank, FaShoppingBag, FaTruck } from "react-icons/fa";
 const Services = () => {
     return (
-        <div>
+        <div className='my-10'>
             <h2 className='text-4xl text-center font-bold my-10 mx-auto'>Our Services</h2>
             <div className='flex flex-col lg:flex-row gap-5 mx-10 justify-evenly items-center'>
                 <div className='flex flex-col justify-center items-start'>

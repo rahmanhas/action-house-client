@@ -4,6 +4,7 @@ import Gallery from '../Gallery/Gallery';
 import ShopByCategory from '../ShopByCategory/ShopByCategory';
 import useDynamicTitle from '../../../CustomHook/UseDynamicTitle';
 import Services from '../Services/Services';
+import Review from '../Review/Review';
 
 
 const Home = () => {
@@ -14,9 +15,10 @@ const Home = () => {
             <Banner></Banner>
             <Gallery></Gallery>
             <ShopByCategory></ShopByCategory>
-            {/* Bonus Section-1 */}
+            {/* Extra Section-1 */}
             <Services></Services>
-            
+            {/* Extra Section-2 */}
+            <Review></Review>
         </div>
     );
 };
