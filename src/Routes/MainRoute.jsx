@@ -5,6 +5,7 @@ import LogIn from '../Pages/Login/LogIn';
 import Main from '../Layout/Main';
 import Register from '../Pages/Register/Register';
 import AddToy from '../Pages/AddToy/AddToy';
+import Blog from '../Pages/Blogs/Blog';
 
 const MainRoute = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const MainRoute = createBrowserRouter([
             {
                 path: "addtoy",
                 element: <AddToy></AddToy>
+            },
+            {
+                path: "blog",
+                element: <Blog></Blog>
             },
         ]
     },
