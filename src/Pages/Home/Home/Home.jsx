@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import Gallery from '../Gallery/Gallery';
 import ShopByCategory from '../ShopByCategory/ShopByCategory';
 import useDynamicTitle from '../../../CustomHook/UseDynamicTitle';
+import Services from '../Services/Services';
 
 
 const Home = () => {
@@ -13,6 +14,8 @@ const Home = () => {
             <Banner></Banner>
             <Gallery></Gallery>
             <ShopByCategory></ShopByCategory>
+            {/* Bonus Section-1 */}
+            <Services></Services>
             
         </div>
     );
