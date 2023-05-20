@@ -49,7 +49,7 @@ const Services = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div  data-aos="fade-up" >
                     <img className='h-[250px] flex flex-col justify-center items-star mx-auto rounded-lg' src="https://img.freepik.com/free-vector/disguised-hidden-comic-book-superhero-businessman-tearing-his-shirt-concept-vector-illustration_1284-2015.jpg?w=1380&t=st=1684469046~exp=1684469646~hmac=fc83be4e6660931601e93da77ecf9f90c6cb3465abd007f5ea1e4468d4aff789" alt="" />
                 </div>
                 <div className='flex flex-col justify-center items-start'>

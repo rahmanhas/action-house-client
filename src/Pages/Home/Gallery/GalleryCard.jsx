@@ -5,7 +5,7 @@ import '@smastrom/react-rating/style.css'
 const GalleryCard = ({ image }) => {
 
     return (
-        <div className=" rounded-lg  p-6  text-center">
+        <div className=" rounded-xl shadow-2xl mx-10 p-6  text-center">
             <img src={image.image} alt="Toy" className="w-[250px] h-[250px] mb-4 rounded-lg mx-auto" />
 
         </div>

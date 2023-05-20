@@ -43,7 +43,7 @@ const AuthProvider = ({ children }) => {
             setUser(loggedUser);
             setLoading(false)
         })
-        return unsubscribe()
+        return ()=> unsubscribe()
     }, [])
     const authInfo = {
         signUpNewUser,

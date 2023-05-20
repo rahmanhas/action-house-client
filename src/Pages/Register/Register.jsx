@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useDynamicTitle from '../../CustomHook/UseDynamicTitle';
@@ -9,9 +9,11 @@ const Register = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from.pathname || '/'
-    
-    const handleRegister = event => {
+    useEffect(()=>{
         setError("")
+    },[])
+    const handleRegister = event => {
+        
         event.preventDefault()
         const form = event.target;
         const name = form.name.value;
@@ -33,10 +35,10 @@ const Register = () => {
             })
     }
     return (
-        <div className="hero min-h-screen bg-base-200 ">
+        <div className="hero min-h-screen bg-blue-50 ">
             <div className="hero-content lg:w-1/2 text-center">
 
-                <div className="card flex-shrink-0 max-w-sm shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 max-w-sm shadow-2xl bg-blue-100">
                     <form onSubmit={handleRegister} className="card-body">
                         <div className="text-center">
                             <h1 className="text-2xl font-bold text-center">Register now!</h1>

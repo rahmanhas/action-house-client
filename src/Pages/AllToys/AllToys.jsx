@@ -7,12 +7,14 @@ const AllToys = () => {
     const [toys, setToys] = useState([]);
     const [searchName, setSearchName] = useState("");
     useEffect(() => {
-        fetch("http://localhost:5000/storedtoydata")
+        if(!searchName){
+            fetch("https://action-house-server.vercel.app/alldata")
             .then(res => res.json())
             .then(data => setToys(data))
-    }, [])
+        }
+    }, [searchName])
     useEffect(() => {
-        fetch(`http://localhost:5000/searchbytoyname/${searchName}`)
+        fetch(`https://action-house-server.vercel.app/searchbytoyname/${searchName}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [searchName])

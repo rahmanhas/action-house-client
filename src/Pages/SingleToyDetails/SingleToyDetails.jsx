@@ -22,9 +22,9 @@ const SingleToyDetails = () => {
     return (
         <div className='m-10'>
             <h1 className='text-center text-2xl font-bold text-black my-5'>single toy details</h1>
-            <div className="flex flex-col lg:flex-row justify-center items-center bg-blue-200 shadow-lg rounded-lg p-5 mx-auto w-full">
+            <div className="flex flex-col lg:flex-row justify-center items-center bg-blue-50 p-5 mx-auto w-full">
                 <div className='lg:w-1/3 flex justify-center items-center'>
-                    <img src={photoURL} alt={name} className="w-64 h-64 object-cover rounded-md mb-4" />
+                    <img src={photoURL} alt={name} className="w-64 h-64 shadow-lg object-contain rounded-lg mb-4" />
                 </div>
                 <div className='lg:w-1/3 text-center lg:text-left'>
                     <h1 className="text-3xl font-bold mb-2">{name}</h1>

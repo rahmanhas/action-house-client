@@ -50,12 +50,12 @@ const MainRoute = createBrowserRouter([
             {
                 path: "updatetoy/:id",
                 element: <PrivateRoute><UpdateToys></UpdateToys></PrivateRoute>,
-                loader: ({params})=>fetch(`https://action-house-server.vercel.app/storedtoydata/${params.id}`)
+                loader: ({params})=>fetch(`https://action-house-server.vercel.app/findtoyid/${params.id}`)
             },
             {
                 path: "toy/:id",
                 element: <PrivateRoute><SingleToyDetails></SingleToyDetails></PrivateRoute>,
-                loader: ({params})=>fetch(`https://action-house-server.vercel.app/storedtoydata/${params.id}`)
+                loader: ({params})=>fetch(`https://action-house-server.vercel.app/findtoyid/${params.id}`)
             },
         ]
         

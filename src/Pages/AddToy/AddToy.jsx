@@ -30,7 +30,7 @@ const AddToy = () => {
             availableQuantity,
             detailDescription
         };
-        fetch("http://localhost:5000/toys", {
+        fetch("https://action-house-server.vercel.app/toys", {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -42,7 +42,7 @@ const AddToy = () => {
                 console.log(data);
                 if (data.insertedId) {
                     Swal.fire(
-                        'Best Wishes!',
+                        'Congratulations!!!',
                         'Your toy is added to our store!',
                         'success'
                       )

@@ -13,12 +13,12 @@ const MyToys = () => {
 
     useEffect(() => {
        if(sort){
-        fetch(`http://localhost:5000/ascendedtoy/${email}`)
+        fetch(`https://action-house-server.vercel.app/ascendedtoy/${email}`)
         .then(res => res.json())
         .then(data => setToys(data))
        }
        else{
-        fetch(`http://localhost:5000/descendedtoy/${email}`)
+        fetch(`https://action-house-server.vercel.app/descendedtoy/${email}`)
         .then(res => res.json())
         .then(data => setToys(data))
        }

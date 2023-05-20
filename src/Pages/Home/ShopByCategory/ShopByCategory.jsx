@@ -10,8 +10,8 @@ const ShopByCategory = () => {
     const [subCategory, setSubCategory] = useState("DC Comics");
     useEffect(() => {
         
-        // https://action-house-server.vercel.app
-        fetch(`http://localhost:5000/storedtoydata/${subCategory}`)
+
+        fetch(`https://action-house-server.vercel.app/findsubcategory/${subCategory}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [subCategory])
@@ -19,9 +19,9 @@ const ShopByCategory = () => {
         setSubCategory(e.target.value)
     }
     return (
-        <div data-aos="zoom-in">
+        <div className='mx-10'>
             <h1 className='text-4xl text-center font-bold my-10 mx-auto '>Buy From Your Favorite Category</h1>
-            <Tabs>
+            <Tabs className="mx-auto">
                 <TabList>
                     <Tab ><button value="DC Comics" onClick={handleTab}>DC Comics</button></Tab>
                     <Tab ><button value="Marvel Comics" onClick={handleTab}>Marvel Comics</button></Tab>
