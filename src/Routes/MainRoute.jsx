@@ -11,6 +11,7 @@ import MyToys from '../Pages/MyToys/MyToys';
 import UpdateToys from '../Pages/UpdateToys/UpdateToys';
 import SingleToyDetails from '../Pages/SingleToyDetails/SingleToyDetails';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
+import PrivateRoute from './PrivateRoute';
 
 const MainRoute = createBrowserRouter([
     {
@@ -32,7 +33,7 @@ const MainRoute = createBrowserRouter([
             },
             {
                 path: "addtoy",
-                element: <AddToy></AddToy>
+                element: <PrivateRoute><AddToy></AddToy></PrivateRoute>
             },
             {
                 path: "blog",
@@ -44,16 +45,16 @@ const MainRoute = createBrowserRouter([
             },
             {
                 path: "mytoys",
-                element: <MyToys></MyToys>
+                element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
             },
             {
                 path: "updatetoy/:id",
-                element: <UpdateToys></UpdateToys>,
+                element: <PrivateRoute><UpdateToys></UpdateToys></PrivateRoute>,
                 loader: ({params})=>fetch(`https://action-house-server.vercel.app/storedtoydata/${params.id}`)
             },
             {
                 path: "toy/:id",
-                element: <SingleToyDetails></SingleToyDetails>,
+                element: <PrivateRoute><SingleToyDetails></SingleToyDetails></PrivateRoute>,
                 loader: ({params})=>fetch(`https://action-house-server.vercel.app/storedtoydata/${params.id}`)
             },
         ]

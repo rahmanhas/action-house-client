@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useDynamicTitle from '../../CustomHook/UseDynamicTitle';
+import Swal from 'sweetalert2';
 
 const AddToy = () => {
     useDynamicTitle("Action House/Add a Toy")
@@ -40,7 +41,11 @@ const AddToy = () => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-                    alert("Added to Toy Collection successfully")
+                    Swal.fire(
+                        'Best Wishes!',
+                        'Your toy is added to our store!',
+                        'success'
+                      )
                     form.reset()
                 }
             })
@@ -49,8 +54,8 @@ const AddToy = () => {
 
     }
     return (
-        <div>
-            <h2>Add a Toy</h2>
+        <div className='mx-10'>
+            <h1 className='text-center text-2xl font-bold text-black my-5'>Add a Toy</h1>
             <form onSubmit={handleNewlyAddedToy}>
                 <div className='grid lg:grid-cols-2 gap-4 p-5'>
                     <div className="form-control">

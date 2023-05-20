@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAsIEIM4TDDCbqk_4mQo_nhnLeHk_iuAEU",
-    authDomain: "action-house-3b7d9.firebaseapp.com",
-    projectId: "action-house-3b7d9",
-    storageBucket: "action-house-3b7d9.appspot.com",
-    messagingSenderId: "274805393984",
-    appId: "1:274805393984:web:168b19271905f512a0ada5"
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTHDOMAIN,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MISSINGSENDERID,
+    appId: import.meta.env.VITE_APP_KEY,
 };
 
 

@@ -17,7 +17,7 @@ const AllToys = () => {
 
     return (
         <div className='mx-10'>
-            <h1 className="text-center text-2xl font-bold text-black my-5">All Toys</h1>
+            <h1 className="">All Toys</h1>
             <div className="form-control w-full max-w-sm mx-auto flex flex-row my-5 justify-center items-center">
                 <div>
                     <input onChange={(e) => setSearchName(e.target.value)} type="text" placeholder="Toy Name" className="input input-bordered w-full max-w-xs" />

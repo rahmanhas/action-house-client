@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const UpdateToys = () => {
     const { user } = useContext(AuthContext);
@@ -24,6 +25,16 @@ const UpdateToys = () => {
         .then(res=>res.json())
         .then(result=>{
             console.log(result);
+            if(result.modifiedCount > 0){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Your toy data is updated',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                form.reset()
+            }
         })
         .catch(error=>console.log(error.message))
 
