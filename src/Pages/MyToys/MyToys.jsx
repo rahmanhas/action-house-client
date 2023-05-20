@@ -2,18 +2,28 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useDynamicTitle from '../../CustomHook/UseDynamicTitle';
 
 const MyToys = () => {
+    useDynamicTitle("Action House | My Toys")
     const { user } = useContext(AuthContext);
     const email = user?.email;
     const [toys, setToys] = useState([]);
+    const [sort, setSort] = useState(true);
 
     useEffect(() => {
-        fetch(`https://action-house-server.vercel.app/mytoys/${email}`)
-            .then(res => res.json())
-            .then(data => setToys(data))
-    }, [email])
-
+       if(sort){
+        fetch(`http://localhost:5000/ascendedtoy/${email}`)
+        .then(res => res.json())
+        .then(data => setToys(data))
+       }
+       else{
+        fetch(`http://localhost:5000/descendedtoy/${email}`)
+        .then(res => res.json())
+        .then(data => setToys(data))
+       }
+    }, [sort,email])
+    
     const handleDelete = (_id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -49,11 +59,14 @@ const MyToys = () => {
     }
 
     return (
-        <div className='mx-10'>
+        <div className='m-10'>
             <h1 className='text-center text-2xl font-bold text-black my-5'>My Toys</h1>
+            <div className='flex justify-center items-center gap-10 my-5'>
+                <button onClick={()=>setSort(true)} className='btn btn-info'>Ascending</button>
+                <button onClick={()=>setSort(false)} className='btn btn-info'>Descending</button>
+            </div>
 
-
-            <table className='w-full bg-white border border-gray-300 text-center'>
+            <table className='w-full bg-white border border-gray-300 text-center overflow-x-scroll'>
                 <thead>
                     <tr className=''>
                         <th className="py-2 px-4 bg-blue-300 border border-gray-500">Seller Name</th>

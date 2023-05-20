@@ -4,7 +4,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useDynamicTitle from '../../CustomHook/UseDynamicTitle';
 
 const Register = () => {
-    useDynamicTitle("Action House/Register")
+    useDynamicTitle("Action House | Register")
     const { signUpNewUser, setUser, setLoading, updateProfileInfo, error,setError } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();

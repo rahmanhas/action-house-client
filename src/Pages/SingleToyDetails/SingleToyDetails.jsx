@@ -4,13 +4,12 @@ import { useLoaderData } from 'react-router-dom';
 import useDynamicTitle from '../../CustomHook/UseDynamicTitle';
 
 const SingleToyDetails = () => {
-    useDynamicTitle("Action House/Toy Information")
     const toy = useLoaderData();
-
+    
     const {
         _id,
         photoURL,
-        toyName: name,
+        toyName,
         sellerName,
         sellerEmail,
         subCategory,
@@ -19,6 +18,7 @@ const SingleToyDetails = () => {
         availableQuantity,
         detailDescription
     } = toy
+    useDynamicTitle(`Action House | Toy Information ${toyName}`)
     return (
         <div className='m-10'>
             <h1 className='text-center text-2xl font-bold text-black my-5'>single toy details</h1>

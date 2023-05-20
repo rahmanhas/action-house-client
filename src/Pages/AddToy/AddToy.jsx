@@ -4,7 +4,7 @@ import useDynamicTitle from '../../CustomHook/UseDynamicTitle';
 import Swal from 'sweetalert2';
 
 const AddToy = () => {
-    useDynamicTitle("Action House/Add a Toy")
+    useDynamicTitle("Action House | Add a Toy")
     const { user } = useContext(AuthContext);
     const [selectedOption, setSelectedOption] = useState('');
     const handleNewlyAddedToy = event => {
@@ -30,7 +30,7 @@ const AddToy = () => {
             availableQuantity,
             detailDescription
         };
-        fetch("https://action-house-server.vercel.app/toys", {
+        fetch("http://localhost:5000/toys", {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

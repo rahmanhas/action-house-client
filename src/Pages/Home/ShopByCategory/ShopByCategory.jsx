@@ -7,31 +7,35 @@ import CategoryCard from './CategoryCard';
 const ShopByCategory = () => {
     
     const [toys, setToys] = useState([]);
+    const [subCategory, setSubCategory] = useState("DC Comics");
     useEffect(() => {
-        fetch("https://action-house-server.vercel.app/storedtoydata")
+        
+        // https://action-house-server.vercel.app
+        fetch(`http://localhost:5000/storedtoydata/${subCategory}`)
             .then(res => res.json())
             .then(data => setToys(data))
-    }, [])
-
+    }, [subCategory])
+    const handleTab =(e)=>{
+        setSubCategory(e.target.value)
+    }
     return (
-        <div>
+        <div data-aos="zoom-in">
             <h1 className='text-4xl text-center font-bold my-10 mx-auto '>Buy From Your Favorite Category</h1>
             <Tabs>
                 <TabList>
-
-                    <Tab>DC Comics</Tab>
-                    <Tab>Marvel Comics</Tab>
-                    <Tab>Transformers</Tab>
-                    <Tab>Star Wars</Tab>
-                    <Tab>Star Trek</Tab>
-                    <Tab>Others</Tab>
+                    <Tab ><button value="DC Comics" onClick={handleTab}>DC Comics</button></Tab>
+                    <Tab ><button value="Marvel Comics" onClick={handleTab}>Marvel Comics</button></Tab>
+                    <Tab ><button value="Transformers" onClick={handleTab}>Transformers</button></Tab>
+                    <Tab ><button value="Star Wars" onClick={handleTab}>Star Wars</button></Tab>
+                    <Tab ><button value="Star Trek" onClick={handleTab}>Star Trek</button></Tab>
+                    <Tab ><button value="Others" onClick={handleTab}>Others</button></Tab>
                 </TabList>
 
                 <TabPanel>
                     <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
                         {
 
-                            toys.filter(toy => toy.subCategory === "DC Comics").map(toy => <CategoryCard
+                            toys.map(toy => <CategoryCard
                                 key={toy._id}
                                 toy={toy}
                             ></CategoryCard>)
@@ -42,7 +46,7 @@ const ShopByCategory = () => {
                 <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
                         {
 
-                            toys.filter(toy => toy.subCategory === "Marvel Comics").map(toy => <CategoryCard
+                            toys.map(toy => <CategoryCard
                                 key={toy._id}
                                 toy={toy}
                             ></CategoryCard>)
@@ -53,7 +57,7 @@ const ShopByCategory = () => {
                 <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
                         {
 
-                            toys.filter(toy => toy.subCategory === "Transformers").map(toy => <CategoryCard
+                            toys.map(toy => <CategoryCard
                                 key={toy._id}
                                 toy={toy}
                             ></CategoryCard>)
@@ -64,7 +68,7 @@ const ShopByCategory = () => {
                 <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
                         {
 
-                            toys.filter(toy => toy.subCategory === "Star Wars").map(toy => <CategoryCard
+                            toys.map(toy => <CategoryCard
                                 key={toy._id}
                                 toy={toy}
                             ></CategoryCard>)
@@ -75,7 +79,7 @@ const ShopByCategory = () => {
                 <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
                         {
 
-                            toys.filter(toy => toy.subCategory === "Star Trek").map(toy => <CategoryCard
+                            toys.map(toy => <CategoryCard
                                 key={toy._id}
                                 toy={toy}
                             ></CategoryCard>)
@@ -86,7 +90,7 @@ const ShopByCategory = () => {
                 <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
                         {
 
-                            toys.filter(toy => toy.subCategory === "Others").map(toy => <CategoryCard
+                            toys.map(toy => <CategoryCard
                                 key={toy._id}
                                 toy={toy}
                             ></CategoryCard>)

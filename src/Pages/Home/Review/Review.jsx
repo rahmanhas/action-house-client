@@ -6,7 +6,7 @@ import customer4 from "../../../assets/customer/customer-4.webp"
 
 const Review = () => {
     return (
-        <div className='m-10'>
+        <div className='m-10' data-aos="zoom-in">
             <h2 className='text-4xl text-center font-bold mx-auto'>Our Clients Say</h2>
             <div className="carousel w-full mx-auto">
                 <div id="slide1" className="carousel-item flex flex-col relative w-full justify-center items-center gap-5">

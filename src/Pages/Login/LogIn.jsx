@@ -9,7 +9,7 @@ const googleProvider = new GoogleAuthProvider();
 
 
 const LogIn = () => {
-    useDynamicTitle("Action House/login")
+    useDynamicTitle("Action House | login")
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from.pathname || '/'

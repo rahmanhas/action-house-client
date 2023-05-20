@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import useDynamicTitle from '../../CustomHook/UseDynamicTitle';
 
 const Blog = () => {
+    useDynamicTitle("Action House | Blog")
     const [activeTab, setActiveTab] = useState(0);
 
     const handleTabChange = (index) => {
