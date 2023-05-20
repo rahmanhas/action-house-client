@@ -15,7 +15,7 @@ const NavMenu = <>
 </>
 const Header = () => {
     const { user, logOut, setError } = useContext(AuthContext);
-    console.log(user);
+    
     
     const navigate = useNavigate();
     const location = useLocation();

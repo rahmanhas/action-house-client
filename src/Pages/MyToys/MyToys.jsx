@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
@@ -11,6 +12,23 @@ const MyToys = () => {
             .then(res => res.json())
             .then(data => setToys(data))
     }, [email])
+
+    const handleDelete = (_id) => {
+        console.log('delete', _id);
+        fetch(`http://localhost:5000/deletetoy/${_id}`,{
+            method:"DELETE"
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.deletedCount>0){
+                alert("delete successfully")
+                const remaining = toys.filter(user=>user._id !== _id)
+                setToys(remaining);
+            }
+        })
+    }
+
     return (
         <div className='mx-10'>
             <h1 className='text-center text-2xl font-bold text-black my-5'>My Toys</h1>
@@ -40,8 +58,10 @@ const MyToys = () => {
                             <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.price}</td>
                             <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.availableQuantity}</td>
                             <td className="py-2 px-4 bg-blue-100 border border-gray-500 "><button className='btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black'>View Details</button></td>
-                            <td className="py-2 px-4 bg-blue-100 border border-gray-500 "><button className='btn btn-outline btn-info border-0 text-black'>Update</button></td>
-                            <td className="py-2 px-4 bg-blue-100 border border-gray-500 "><button className='btn btn-outline btn-warning border-0 '>Delete</button></td>
+                            <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">
+                                <Link to={`/updatetoy/${toy._id}`}><button  className='btn btn-outline btn-info border-0 text-black'>Update</button></Link>
+                            </td>
+                            <td className="py-2 px-4 bg-blue-100 border border-gray-500 "><button  className='btn btn-outline btn-warning border-0'  onClick={() => handleDelete(toy._id)} >Delete</button></td>
                         </tr>
                     ))}
                 </tbody>

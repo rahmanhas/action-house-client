@@ -8,6 +8,7 @@ import AddToy from '../Pages/AddToy/AddToy';
 import Blog from '../Pages/Blogs/Blog';
 import AllToys from '../Pages/AllToys/AllToys';
 import MyToys from '../Pages/MyToys/MyToys';
+import UpdateToys from '../Pages/UpdateToys/UpdateToys';
 
 const MainRoute = createBrowserRouter([
     {
@@ -41,6 +42,11 @@ const MainRoute = createBrowserRouter([
             {
                 path: "mytoys",
                 element: <MyToys></MyToys>
+            },
+            {
+                path: "updatetoy/:id",
+                element: <UpdateToys></UpdateToys>,
+                loader: ({params})=>fetch(`https://action-house-server.vercel.app/storedtoydata/${params.id}`)
             },
         ]
     },

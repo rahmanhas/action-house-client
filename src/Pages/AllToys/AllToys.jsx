@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 const AllToys = () => {
     const [toys, setToys] = useState([]);
-    const [searchToys, setSearchToys] = useState([]);
     const [searchName, setSearchName] = useState("");
     useEffect(() => {
         fetch("https://action-house-server.vercel.app/storedtoydata")
             .then(res => res.json())
             .then(data => setToys(data))
-    }, [])
+    }, [toys])
     useEffect(() => {
         fetch(`https://action-house-server.vercel.app/searchbytoyname/${searchName}`)
             .then(res => res.json())
