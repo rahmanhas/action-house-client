@@ -9,8 +9,9 @@ const Register = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from.pathname || '/'
-
+    
     const handleRegister = event => {
+        setError("")
         event.preventDefault()
         const form = event.target;
         const name = form.name.value;
@@ -27,7 +28,8 @@ const Register = () => {
             })
             .catch(error=>{
                 setError(error.message)
-                console.log(error);
+                
+                
             })
     }
     return (

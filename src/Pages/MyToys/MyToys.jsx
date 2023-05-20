@@ -76,7 +76,9 @@ const MyToys = () => {
                             <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.subCategory}</td>
                             <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.price}</td>
                             <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.availableQuantity}</td>
-                            <td className="py-2 px-4 bg-blue-100 border border-gray-500 "><button className='btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black'>View Details</button></td>
+                            <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">
+                                <Link to={`/toy/${toy._id}`}><button className='btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black'>View Details</button></Link>
+                            </td>
                             <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">
                                 <Link to={`/updatetoy/${toy._id}`}><button className='btn btn-outline btn-info border-0 text-black'>Update</button></Link>
                             </td>

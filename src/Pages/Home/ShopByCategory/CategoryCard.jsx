@@ -1,8 +1,10 @@
 import { Rating } from '@smastrom/react-rating';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CategoryCard = ({ toy }) => {
     const {
+        _id,
         photoURL,
         toyName,
         sellerName,
@@ -30,7 +32,7 @@ const CategoryCard = ({ toy }) => {
                     </div>
                     <h2 className="text-xl font-bold my-4">{toyName}</h2>
                     <p className='mb-4 text-red-500 text-xl'>${price}</p>
-                    <button className='btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black'>View Details</button>
+                    <Link to={`/toy/${toy._id}`}><button className='btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black'>View Details</button></Link>
                 </div>
             </div>
         </div>

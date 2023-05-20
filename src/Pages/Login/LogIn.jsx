@@ -14,8 +14,9 @@ const LogIn = () => {
     const location = useLocation();
     const from = location.state?.from.pathname || '/'
     const { logInUser, logInGoogleUser, setUser, setLoading, updateProfileInfo, error, setError } = useContext(AuthContext);
-
+    
     const handleLogin = event => {
+        setError("")
         event.preventDefault()
         const form = event.target;
         const password = form.password.value;

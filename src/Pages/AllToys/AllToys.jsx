@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const AllToys = () => {
     const [toys, setToys] = useState([]);
@@ -13,7 +14,7 @@ const AllToys = () => {
             .then(res => res.json())
             .then(data => setToys(data))
     }, [searchName])
-    
+
     return (
         <div className='mx-10'>
             <h1 className="text-center text-2xl font-bold text-black my-5">All Toys</h1>
@@ -34,19 +35,23 @@ const AllToys = () => {
                         <th className="py-2 px-4 bg-blue-300 border border-gray-500">Price</th>
                         <th className="py-2 px-4 bg-blue-300 border border-gray-500">Available Quantity</th>
                         <th className="py-2 px-4 bg-blue-300 border border-gray-500">View Details</th>
-                        
+
                     </tr>
                 </thead>
                 <tbody>
                     {toys.map(toy => (
-                        <tr 
-                        key={toy._id}>
-                        <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.sellerName}</td>
-                        <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.toyName}</td>
-                        <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.subCategory}</td>
-                        <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.price}</td>
-                        <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.availableQuantity}</td>
-                        <td className="py-2 px-4 bg-blue-100 border border-gray-500 "><button className='btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black'>View Details</button></td>
+                        <tr
+                            key={toy._id}>
+                            <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.sellerName}</td>
+                            <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.toyName}</td>
+                            <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.subCategory}</td>
+                            <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.price}</td>
+                            <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">{toy.availableQuantity}</td>
+                            <td className="py-2 px-4 bg-blue-100 border border-gray-500 ">
+                                <Link to={`/toy/${toy._id}`}>
+                                    <button className='btn btn-primary bg-blue-500 hover:bg-blue-800 border-0 text-black'>View Details</button>
+                                </Link>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

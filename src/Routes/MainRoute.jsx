@@ -9,11 +9,14 @@ import Blog from '../Pages/Blogs/Blog';
 import AllToys from '../Pages/AllToys/AllToys';
 import MyToys from '../Pages/MyToys/MyToys';
 import UpdateToys from '../Pages/UpdateToys/UpdateToys';
+import SingleToyDetails from '../Pages/SingleToyDetails/SingleToyDetails';
+import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 
 const MainRoute = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path: "/",
@@ -37,7 +40,7 @@ const MainRoute = createBrowserRouter([
             },
             {
                 path: "alltoys",
-                element: <AllToys></AllToys>
+                element: <AllToys></AllToys>,
             },
             {
                 path: "mytoys",
@@ -48,7 +51,13 @@ const MainRoute = createBrowserRouter([
                 element: <UpdateToys></UpdateToys>,
                 loader: ({params})=>fetch(`https://action-house-server.vercel.app/storedtoydata/${params.id}`)
             },
+            {
+                path: "toy/:id",
+                element: <SingleToyDetails></SingleToyDetails>,
+                loader: ({params})=>fetch(`https://action-house-server.vercel.app/storedtoydata/${params.id}`)
+            },
         ]
+        
     },
 ]);
 
