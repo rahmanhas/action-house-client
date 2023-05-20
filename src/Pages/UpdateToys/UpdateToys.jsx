@@ -14,7 +14,7 @@ const UpdateToys = () => {
         const detailDescription = form.detailDescription.value;
         const updateToy = {price,availableQuantity,detailDescription}
 
-        fetch(`http://localhost:5000/updatetoy/${_id}`,{
+        fetch(`https://action-house-server.vercel.app/updatetoy/${_id}`,{
             method: 'PUT',
             headers: {
                 "content-type": "application/json"
