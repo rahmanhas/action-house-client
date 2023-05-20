@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import CategoryCard from './CategoryCard';
 
+
 const ShopByCategory = () => {
+    
     const [toys, setToys] = useState([]);
     useEffect(() => {
         fetch("https://action-house-server.vercel.app/storedtoydata")
