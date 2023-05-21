@@ -45,13 +45,11 @@ const AddToy = () => {
                         'Congratulations!!!',
                         'Your toy is added to our store!',
                         'success'
-                      )
+                    )
                     form.reset()
                 }
             })
             .catch(error => console.log(error));
-
-
     }
     return (
         <div className='mx-10'>
@@ -76,7 +74,7 @@ const AddToy = () => {
                         <label className="label">
                             <span className="label-text">Seller Name</span>
                         </label>
-                        <input type="text" defaultValue={user?.displayName} name="sellerName" placeholder="Seller Name" className="input input-bordered"/>
+                        <input type="text" defaultValue={user?.displayName} name="sellerName" placeholder="Seller Name" className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">

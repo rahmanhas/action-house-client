@@ -1,21 +1,18 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import CategoryCard from './CategoryCard';
 
-
 const ShopByCategory = () => {
-    
+
     const [toys, setToys] = useState([]);
     const [subCategory, setSubCategory] = useState("DC Comics");
     useEffect(() => {
-        
-
         fetch(`https://action-house-server.vercel.app/findsubcategory/${subCategory}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [subCategory])
-    const handleTab =(e)=>{
+    const handleTab = (e) => {
         setSubCategory(e.target.value)
     }
     return (
@@ -30,11 +27,9 @@ const ShopByCategory = () => {
                     <Tab ><button value="Star Trek" onClick={handleTab}>Star Trek</button></Tab>
                     <Tab ><button value="Others" onClick={handleTab}>Others</button></Tab>
                 </TabList>
-
                 <TabPanel>
                     <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
                         {
-
                             toys.map(toy => <CategoryCard
                                 key={toy._id}
                                 toy={toy}
@@ -43,9 +38,8 @@ const ShopByCategory = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
+                    <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
                         {
-
                             toys.map(toy => <CategoryCard
                                 key={toy._id}
                                 toy={toy}
@@ -54,9 +48,8 @@ const ShopByCategory = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
+                    <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
                         {
-
                             toys.map(toy => <CategoryCard
                                 key={toy._id}
                                 toy={toy}
@@ -65,9 +58,8 @@ const ShopByCategory = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
+                    <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
                         {
-
                             toys.map(toy => <CategoryCard
                                 key={toy._id}
                                 toy={toy}
@@ -76,9 +68,8 @@ const ShopByCategory = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
+                    <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
                         {
-
                             toys.map(toy => <CategoryCard
                                 key={toy._id}
                                 toy={toy}
@@ -87,9 +78,8 @@ const ShopByCategory = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
+                    <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 justify-center items-center mx-10'>
                         {
-
                             toys.map(toy => <CategoryCard
                                 key={toy._id}
                                 toy={toy}
@@ -97,7 +87,6 @@ const ShopByCategory = () => {
                         }
                     </div>
                 </TabPanel>
-
             </Tabs>
         </div>
     );

@@ -6,12 +6,10 @@ import useDynamicTitle from '../../../CustomHook/UseDynamicTitle';
 import Services from '../Services/Services';
 import Review from '../Review/Review';
 
-
 const Home = () => {
     useDynamicTitle("Action House")
     return (
         <div>
-            
             <Banner></Banner>
             <Gallery></Gallery>
             <ShopByCategory></ShopByCategory>

@@ -12,18 +12,18 @@ const MyToys = () => {
     const [sort, setSort] = useState(true);
 
     useEffect(() => {
-       if(sort){
-        fetch(`https://action-house-server.vercel.app/ascendedtoy/${email}`)
-        .then(res => res.json())
-        .then(data => setToys(data))
-       }
-       else{
-        fetch(`https://action-house-server.vercel.app/descendedtoy/${email}`)
-        .then(res => res.json())
-        .then(data => setToys(data))
-       }
-    }, [sort,email,toys])
-    
+        if (sort) {
+            fetch(`https://action-house-server.vercel.app/ascendedtoy/${email}`)
+                .then(res => res.json())
+                .then(data => setToys(data))
+        }
+        else {
+            fetch(`https://action-house-server.vercel.app/descendedtoy/${email}`)
+                .then(res => res.json())
+                .then(data => setToys(data))
+        }
+    }, [sort, email, toys])
+
     const handleDelete = (_id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -42,12 +42,11 @@ const MyToys = () => {
                     .then(data => {
                         console.log(data);
                         if (data.deletedCount > 0) {
-                            
+
                             const remaining = toys.filter(user => user._id !== _id)
                             setToys(remaining);
                         }
                     })
-
                 Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',
@@ -55,15 +54,14 @@ const MyToys = () => {
                 )
             }
         })
-
     }
 
     return (
         <div className='m-10'>
             <h1 className='text-center text-2xl font-bold text-black my-5'>My Toys</h1>
             <div className='flex justify-center items-center gap-10 my-5'>
-                <button onClick={()=>setSort(true)} className='btn btn-info'>Price: Ascending</button>
-                <button onClick={()=>setSort(false)} className='btn btn-info'>Price: Descending</button>
+                <button onClick={() => setSort(true)} className='btn btn-info'>Price: Ascending</button>
+                <button onClick={() => setSort(false)} className='btn btn-info'>Price: Descending</button>
             </div>
 
             <table className='w-full bg-white border border-gray-300 text-center overflow-x-scroll'>
@@ -77,7 +75,6 @@ const MyToys = () => {
                         <th className="py-2 px-4 bg-blue-300 border border-gray-500">View Details</th>
                         <th className="py-2 px-4 bg-blue-300 border border-gray-500">Update</th>
                         <th className="py-2 px-4 bg-blue-300 border border-gray-500">Delete</th>
-
                     </tr>
                 </thead>
                 <tbody>

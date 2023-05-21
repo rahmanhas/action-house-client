@@ -1,10 +1,7 @@
 import React, { useContext } from 'react';
-import useDynamicTitle from '../../../../CustomHook/UseDynamicTitle';
 import logo from "../../../../../public/vite.svg"
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../AuthProvider/AuthProvider';
-
-
 
 const NavMenu = <>
     <li><NavLink to={`/`} className={({ isActive }) => isActive ? "bg-blue-500 text-lg text-black mr-2 p-2" : ""}>Home</NavLink></li>
@@ -15,8 +12,6 @@ const NavMenu = <>
 </>
 const Header = () => {
     const { user, logOut, setError } = useContext(AuthContext);
-    
-    
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from.pathname || '/'
@@ -36,7 +31,6 @@ const Header = () => {
                         {NavMenu}
                     </ul>
                 </div>
-
                 <img className='h-[60px]' src={logo} alt="" />
                 <h1 className='font-bold ml-2 text-xl'>Action <br /> House</h1>
             </div>

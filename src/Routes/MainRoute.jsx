@@ -57,12 +57,8 @@ const MainRoute = createBrowserRouter([
                 element: <PrivateRoute><SingleToyDetails></SingleToyDetails></PrivateRoute>,
                 loader: ({params})=>fetch(`https://action-house-server.vercel.app/findtoyid/${params.id}`)
             },
-        ]
-        
+        ]        
     },
 ]);
-
-
-
 
 export default MainRoute;

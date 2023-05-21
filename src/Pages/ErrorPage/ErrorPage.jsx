@@ -1,9 +1,10 @@
 import { Link, useRouteError } from 'react-router-dom'
+import useDynamicTitle from '../../CustomHook/UseDynamicTitle';
 
 const ErrorPage = () => {
+    useDynamicTitle("Page Not Found")
     const { error, status } = useRouteError()
 
-    console.log(error);
     return (
         <div className='flex items-center h-full w-full mt-5'>
             <div className='container flex flex-col items-center justify-center px-5 mx-auto '>
@@ -18,9 +19,9 @@ const ErrorPage = () => {
                         </p>
                     </div>
                     <div>
-                    <Link to='/' className='btn btn-outlook bg-blue-500 text-black hover:bg-blue-900'>
-                        Go to homepage
-                    </Link>
+                        <Link to='/' className='btn btn-outlook bg-blue-500 text-black hover:bg-blue-900'>
+                            Go to homepage
+                        </Link>
                     </div>
                 </div>
             </div>

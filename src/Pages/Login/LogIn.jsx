@@ -8,7 +8,6 @@ import login from "../../assets/customer/login.webp"
 
 const googleProvider = new GoogleAuthProvider();
 
-
 const LogIn = () => {
     useDynamicTitle("Action House | login")
     const navigate = useNavigate();
@@ -16,7 +15,6 @@ const LogIn = () => {
     const from = location.state?.from.pathname || '/'
     const { logInUser, logInGoogleUser, setUser, setLoading, updateProfileInfo, error, setError } = useContext(AuthContext);
     useEffect(() => {
-
         setError("")
     }, [])
     const handleLogin = event => {
@@ -26,7 +24,6 @@ const LogIn = () => {
         const email = form.email.value;
         logInUser(email, password)
             .then(result => {
-
                 setUser(result.user)
                 form.reset()
                 navigate(from)
@@ -51,7 +48,7 @@ const LogIn = () => {
 
                     <div className="card lg:flex-row flex-shrink-0 shadow-2xl bg-blue-100">
                         <div className='max-w-sm flex '>
-                            <img src={login} alt="login"  className='rounded-2xl'/>
+                            <img src={login} alt="login" className='rounded-2xl' />
                         </div>
                         <form onSubmit={handleLogin} className="card-body max-w-sm">
                             <div className="text-center">
@@ -69,7 +66,6 @@ const LogIn = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" />
-
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -77,12 +73,10 @@ const LogIn = () => {
                                 </label>
                             </div>
                             <div className="form-control">
-
                                 <button onClick={handleGoogleLogIn} className='my-3 btn btn-info inline-flex gap-2'><FaGoogle /><span>Login with Google</span></button>
 
                             </div>
                             <div className="form-control">
-
                                 <p className='text-red-500'>{error}</p>
                             </div>
                             <div className="form-control">

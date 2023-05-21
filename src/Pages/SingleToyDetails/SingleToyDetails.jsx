@@ -5,7 +5,6 @@ import useDynamicTitle from '../../CustomHook/UseDynamicTitle';
 
 const SingleToyDetails = () => {
     const toy = useLoaderData();
-    
     const {
         _id,
         photoURL,
@@ -28,9 +27,9 @@ const SingleToyDetails = () => {
                 </div>
                 <div className='lg:w-1/3 text-center lg:text-left'>
                     <h1 className="text-3xl font-bold mb-2">{name}</h1>
-                        <p className="mb-4 text-2xl font-bold">{subCategory} Action Figure</p>
+                    <p className="mb-4 text-2xl font-bold">{subCategory} Action Figure</p>
                     <p className="text-gray-600 mb-4 flex justify-center lg:justify-start">
-                    <Rating
+                        <Rating
                             className=''
                             style={{ maxWidth: 180 }}
                             value={rating}
@@ -39,15 +38,13 @@ const SingleToyDetails = () => {
                     </p>
                     <p className="text-red-500 text-xl mb-4">${price}</p>
                     <p className=" mb-4">Only <span className='font-bold text-red-700'>{availableQuantity}</span> pcs Available!!!!!! <br />Hurry Up</p>
-                    
                 </div>
                 <div className='lg:w-1/3 text-center lg:text-left'>
-                <p className=" mb-4"><span className='font-bold'>Seller:</span> {sellerName}</p>
+                    <p className=" mb-4"><span className='font-bold'>Seller:</span> {sellerName}</p>
                     <p className="mb-4"><span className='font-bold'>Seller Email</span>: {sellerEmail}</p>
                     <p className="mb-4"><span className='font-bold'>Product Description:</span><br />{detailDescription}</p>
                 </div>
             </div>
-
         </div>
     );
 };
