@@ -22,7 +22,7 @@ const MyToys = () => {
         .then(res => res.json())
         .then(data => setToys(data))
        }
-    }, [sort,email])
+    }, [sort,email,toys])
     
     const handleDelete = (_id) => {
         Swal.fire({
@@ -62,8 +62,8 @@ const MyToys = () => {
         <div className='m-10'>
             <h1 className='text-center text-2xl font-bold text-black my-5'>My Toys</h1>
             <div className='flex justify-center items-center gap-10 my-5'>
-                <button onClick={()=>setSort(true)} className='btn btn-info'>Ascending</button>
-                <button onClick={()=>setSort(false)} className='btn btn-info'>Descending</button>
+                <button onClick={()=>setSort(true)} className='btn btn-info'>Price: Ascending</button>
+                <button onClick={()=>setSort(false)} className='btn btn-info'>Price: Descending</button>
             </div>
 
             <table className='w-full bg-white border border-gray-300 text-center overflow-x-scroll'>

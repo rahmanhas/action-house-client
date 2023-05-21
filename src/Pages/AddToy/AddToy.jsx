@@ -76,13 +76,13 @@ const AddToy = () => {
                         <label className="label">
                             <span className="label-text">Seller Name</span>
                         </label>
-                        <input type="text" defaultValue={user?.displayName} name="sellerName" placeholder="Seller Name" className="input input-bordered" />
+                        <input type="text" defaultValue={user?.displayName} name="sellerName" placeholder="Seller Name" className="input input-bordered"/>
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Seller Email</span>
                         </label>
-                        <input type="email" defaultValue={user?.email} name="sellerEmail" placeholder="Seller Email" className="input input-bordered" />
+                        <input type="email" value={user?.email} name="sellerEmail" placeholder="Seller Email" className="input input-bordered" />
                     </div>
                 </div>
                 <div className='grid lg:grid-cols-2 gap-4 p-5'>

@@ -24,18 +24,22 @@ const UpdateToys = () => {
         })
         .then(res=>res.json())
         .then(result=>{
+           
             console.log(result);
             if(result.modifiedCount > 0){
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'Your toy data is updated',
-                    showConfirmButton: false,
-                    timer: 1500
+                    title: `Your toy: ${toy.toyName} data is updated`,
+                    showConfirmButton: true,
+                    
                   })
-                form.reset()
+                  form.reset()
+                
+                
             }
         })
+        
         .catch(error=>console.log(error.message))
 
     }
